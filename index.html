@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron Charles-Rhymes Portfolio</title>
+    <script src="https://unpkg.com/react@18.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+            const [darkMode, setDarkMode] = React.useState(true);
+            const [menuOpen, setMenuOpen] = React.useState(false);
+
+            const toggleDarkMode = () => {
+                setDarkMode(!darkMode);
+            };
+
+            const toggleMenu = () => {
+                setMenuOpen(!menuOpen);
+            };
+
+            const bgColor = darkMode ? 'bg-[#2A2B2A]' : 'bg-white';
+            const textColor = darkMode ? 'text-white' : 'text-black';
+            const textColorMuted = darkMode ? 'text-white/70' : 'text-black/70';
+            const borderColor = darkMode ? 'border-white/20' : 'border-black/20';
+
+            return (
+                <div className={`min-h-screen px-4 py-8 ${bgColor} ${textColor}`}>
+                    <div className="max-w-6xl mx-auto">
+                        {/* Navigation */}
+                        <nav className="flex flex-wrap justify-between items-center mb-20">
+                            <div className="text-lg font-semibold">Aaron Charles-Rhymes</div>
+                            <div className="lg:hidden">
+                                <button onClick={toggleMenu} className="text-2xl">
+                                    <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+                                </button>
+                            </div>
+                            <div className={`${menuOpen ? 'block' : 'hidden'} lg:flex w-full lg:w-auto flex-col lg:flex-row items-start lg:items-center gap-4 mt-4 lg:mt-0`}>
+                                <a href="#" className={`${textColorMuted} block lg:inline-block`}>About Me</a>
+                                <a href="#" className={`${textColorMuted} block lg:inline-block`}>My Design Principles</a>
+                                <a href="#" className={`${textColorMuted} block lg:inline-block`}>Projects</a>
+                                <a href="#" className={`${textColorMuted} block lg:inline-block`}>Contact Me</a>
+                                <button 
+                                    onClick={toggleDarkMode} 
+                                    className={`w-12 h-6 ${darkMode ? 'bg-white/20' : 'bg-black/20'} rounded-full relative mt-4 lg:mt-0`}
+                                >
+                                    <div 
+                                        className={`w-5 h-5 rounded-full absolute top-0.5 transition-all duration-300 ease-in-out ${
+                                            darkMode ? 'bg-white right-0.5' : 'bg-black left-0.5'
+                                        }`}
+                                    ></div>
+                                </button>
+                            </div>
+                        </nav>
+
+                        {/* Hero Section */}
+                        <div className="mb-32 text-center">
+                            <img src="https://placehold.co/100x100" alt="Stylized portrait illustration of a designer in yellow and blue tones" className="rounded-full mb-6 mx-auto"/>
+                            <h1 className="text-3xl font-semibold mb-4">I craft interfaces</h1>
+                            <p className={`${textColorMuted} max-w-2xl mx-auto`}>
+                                I'm a Product and Web Designer merging data-driven solutions with human-centered experiences. Through my work at Amazon and Delta Digital, I've worked on projects to creatively enhance digital products and interfaces. Drawing inspiration from everyday moments and digital art, I bring both creativity and technical precision to each project. Let's collaborate to bring your vision to life.
+                            </p>
+                        </div>
+
+                        {/* Design Principles */}
+                        <h2 className="text-3xl font-semibold text-center mb-16">My Design Principles</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+                            {[
+                                {
+                                    number: "01",
+                                    title: "User-Centered Design",
+                                    description: "Prioritize the needs, goals, and experiences of the user in every design decision."
+                                },
+                                {
+                                    number: "02",
+                                    title: "Aesthetic Functionality",
+                                    description: "Marry form and function to create visually appealing designs that serve a practical purpose."
+                                },
+                                {
+                                    number: "03",
+                                    title: "Collaborative Creativity",
+                                    description: "Foster collaboration and open communication to enhance creativity and innovation in design."
+                                },
+                                {
+                                    number: "04",
+                                    title: "Data-Driven Decisions",
+                                    description: "Base design choices on data and user feedback to ensure effectiveness and relevance."
+                                },
+                                {
+                                    number: "05",
+                                    title: "Simplicity and Clarity",
+                                    description: "Strive for simplicity and clarity in design to enhance usability and comprehension."
+                                },
+                                {
+                                    number: "06",
+                                    title: "Continuous Improvement",
+                                    description: "Embrace a mindset of continuous improvement and learning to stay ahead in the evolving field of design."
+                                }
+                            ].map((principle, index) => (
+                                <div key={index} className={`border-t ${borderColor} pt-4`}>
+                                    <div className="text-xl opacity-50 mb-2">{principle.number}</div>
+                                    <h3 className="text-lg font-semibold mb-2">{principle.title}</h3>
+                                    <p className={`${textColorMuted} text-sm`}>{principle.description}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Projects Section */}
+                        <h3 className="text-sm font-medium mb-8">Selected projects</h3>
+                        <div className="space-y-12 mb-8">
+                            {[
+                                {
+                                    date: "2019 - present",
+                                    title: "E-commerce Redesign",
+                                    description: "Revamped the user interface of a major e-commerce platform, resulting in a 30% increase in conversion rates.",
+                                    link: "#",
+                                    image: "https://placehold.co/200x400"
+                                },
+                                {
+                                    date: "2020 - 2021",
+                                    title: "Health App UI/UX",
+                                    description: "Designed an intuitive health tracking app that garnered over 1 million downloads in its first year.",
+                                    link: "#",
+                                    image: "https://placehold.co/200x400"
+                                },
+                                {
+                                    date: "2021 - 2022",
+                                    title: "Financial Dashboard",
+                                    description: "Created a comprehensive financial dashboard for a fintech startup, improving user engagement by 45%.",
+                                    link: "#",
+                                    image: "https://placehold.co/200x400"
+                                }
+                            ].map((project, index) => (
+                                <div key={index} className="flex flex-col md:flex-row justify-between items-start gap-4">
+                                    <div className="flex-1">
+                                        <div className={`text-sm ${textColorMuted} mb-2`}>{project.date}</div>
+                                        <h4 className="text-xl font-medium mb-2">{project.title}</h4>
+                                        <p className={`${textColorMuted} mb-2`}>{project.description}</p>
+                                        <a href={project.link} className={`${textColor} hover:underline`}>Try it out →</a>
+                                    </div>
+                                    <img src={project.image} alt={`${project.title} interface mockup`} className="w-full md:w-32 h-auto md:h-64 object-cover flex-shrink-0 mt-4 md:mt-0"/>
+                                </div>
+                            ))}
+                        </div>
+                        
+                        <a href="#" className={`${textColor} hover:underline block mb-32`}>View all projects →</a>
+
+                        {/* Footer */}
+                        <footer className="text-center">
+                            <p className="mb-4">Contact</p>
+                            <div className="flex justify-center gap-4">
+                                <a href="#" className={`${textColor} hover:underline`}>Github →</a>
+                                <a href="#" className={`${textColor} hover:underline`}>LinkedIn →</a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
