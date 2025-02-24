@@ -1,0 +1,155 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron Charles-Rhymes - Visual Designer</title>
+    <script src="https://unpkg.com/react@18.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function App() {
+            const [isDarkMode, setIsDarkMode] = React.useState(true);
+
+            const toggleTheme = () => {
+                setIsDarkMode(!isDarkMode);
+            };
+
+            const themeClass = isDarkMode ? 'bg-[#2A2A2A] text-white' : 'bg-white text-black';
+
+            return (
+                <div className={`${themeClass} min-h-screen transition-colors duration-300`}>
+                    <div className="max-w-4xl mx-auto px-6 py-8">
+                        <header className="flex justify-between items-center mb-20">
+                            <div>Aaron Charles-Rhymes</div>
+                            <button 
+                                onClick={toggleTheme} 
+                                className={`w-12 h-6 ${isDarkMode ? 'bg-gray-600' : 'bg-gray-300'} rounded-full flex items-center px-1 transition-colors duration-300`}
+                            >
+                                <div className={`w-4 h-4 bg-white rounded-full transform transition-transform duration-300 ${isDarkMode ? 'translate-x-6' : ''}`}></div>
+                            </button>
+                        </header>
+
+                        <main>
+                            <section className="text-center mb-20">
+                                <h1 className="text-4xl font-bold mb-6">I am a Visual Designer specializing in branding and UI/UX</h1>
+                                <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-8 max-w-2xl mx-auto`}>
+                                    I'm a Visual Designer with a passion for crafting compelling brand identities and intuitive user experiences. Through my work at leading companies like Amazon and Delta Dental, I've developed a keen eye for balancing aesthetic appeal with functional design. My approach combines strategic thinking with creative exploration, ensuring each project not only looks beautiful but also achieves its business goals. I'm always excited to take on new challenges and create designs that leave a lasting impression.
+                                </p>
+                                <a 
+                                    href="/path-to-your-resume.pdf" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className={`${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'} font-semibold px-6 py-3 rounded-full hover:opacity-90 transition duration-300 inline-block`}
+                                >
+                                    Download my Resume
+                                </a>
+                            </section>
+
+                            <section className="mb-20">
+                                <h2 className="text-2xl font-bold text-center mb-12">My Design Principles</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    {[
+                                        {
+                                            number: "01",
+                                            title: "User-Centered Design",
+                                            description: "Prioritize the needs, goals, and experiences of the user in every design decision."
+                                        },
+                                        {
+                                            number: "02",
+                                            title: "Aesthetic Functionality",
+                                            description: "Marry form and function to create designs that serve a practical purpose."
+                                        },
+                                        {
+                                            number: "03",
+                                            title: "Collaborative Creativity",
+                                            description: "Foster collaboration and open communication to enhance creativity and innovation in design."
+                                        },
+                                        {
+                                            number: "04",
+                                            title: "Data-Driven Decisions",
+                                            description: "Base design choices on data and user feedback to ensure successful outcomes."
+                                        },
+                                        {
+                                            number: "05",
+                                            title: "Simplicity and Clarity",
+                                            description: "Strive for simplicity and clarity in design to enhance usability and engagement."
+                                        },
+                                        {
+                                            number: "06",
+                                            title: "Continuous Improvement",
+                                            description: "Maintain a mindset of continuous growth and learning to stay ahead in the evolving field of design."
+                                        }
+                                    ].map((principle, index) => (
+                                        <div key={index} className={`${isDarkMode ? 'bg-[#333333]' : 'bg-gray-100'} p-6 rounded-lg`}>
+                                            <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} mb-2`}>{principle.number}</div>
+                                            <h3 className="text-lg font-bold mb-2">{principle.title}</h3>
+                                            <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>{principle.description}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+
+                            <section>
+                                <h2 className="text-2xl font-bold text-center mb-12">Selected projects</h2>
+                                <div className="space-y-12">
+                                    {[
+                                        {
+                                            title: "Mean Mug Coffee - Brand Identity",
+                                            description: "A comprehensive brand identity system combining minimalist aesthetics with bold typography.",
+                                            image: "/path-to-your-mean-mug-coffee-brand-image.jpg",
+                                            link: "https://meanmugcoffee.com"
+                                        },
+                                        {
+                                            title: "Mean Mug Coffee - Website Design",
+                                            description: "A user-centered website redesign focusing on improving the online ordering experience and brand presentation.",
+                                            image: "/path-to-your-mean-mug-coffee-website-image.jpg",
+                                            link: "https://meanmugcoffee.com/website"
+                                        },
+                                        {
+                                            title: "Crunchyroll - Marketing Landing Page",
+                                            description: "A strategic landing page design for anime streaming service focused on conversion and user engagement.",
+                                            image: "/path-to-your-crunchyroll-landing-page-image.jpg",
+                                            link: "https://crunchyroll.com/landing"
+                                        }
+                                    ].map((project, index) => (
+                                        <div key={index} className="space-y-4">
+                                            <img src={project.image} alt={project.title} className="w-full rounded-lg object-cover h-64"/>
+                                            <h3 className="text-xl font-bold">{project.title}</h3>
+                                            <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>{project.description}</p>
+                                            <a 
+                                                href={project.link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className={`${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'} inline-block transition-colors duration-300`}
+                                            >
+                                                View live site →
+                                            </a>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+
+                            <footer className="mt-20 text-center">
+                                <h2 className="text-2xl font-bold mb-4">Contact</h2>
+                                <div className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
+                                    <a href="#" className={isDarkMode ? 'hover:text-white' : 'hover:text-black'}>Github →</a>
+                                    <span className="mx-4">|</span>
+                                    <a href="#" className={isDarkMode ? 'hover:text-white' : 'hover:text-black'}>LinkedIn →</a>
+                                </div>
+                            </footer>
+                        </main>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
