@@ -95,45 +95,45 @@
                                 </div>
                             </section>
 
-                            <section>
-                                <h2 className="text-2xl font-bold text-center mb-12">Selected projects</h2>
-                                <div className="space-y-12">
-                                    {[
-                                        {
-                                            title: "Mean Mug Coffee - Brand Identity",
-                                            description: "A comprehensive brand identity system combining minimalist aesthetics with bold typography.",
-                                            image: "img/mean-mug-coffee.png",
-                                            link: "https://docs.google.com/presentation/d/1R4tHtSH4ZCVEFjDlPwbKgbFyrXAfvuEAnmZia4ate8Q/edit?usp=sharing"
-                                        },
-                                        {
-                                            title: "Mean Mug Coffee - Website Design",
-                                            description: "A user-centered website redesign focusing on improving the online ordering experience and brand presentation.",
-                                            image: "img/mean-mug-coffee-website.png",
-                                            link: "https://www.figma.com/deck/CFbzI1cciCLKDJ7C25Upug/MMC-UX-Case-Study?node-id=1-540&t=v2P4Qmb0WbIaJXyy-1"
-                                        },
-                                        {
-                                            title: "Crunchyroll - Marketing Landing Page",
-                                            description: "A strategic landing page design for anime streaming service focused on conversion and user engagement.",
-                                            image: "img/crunchyroll.png",
-                                            link: "https://docs.google.com/presentation/d/1vhf-Kv1FXOw_R-R8Kwi7Sn5Q3Z4VVF8mpI_KO4BYjaM/edit?usp=sharing"
-                                        }
-                                    ].map((project, index) => (
-                                        <div key={index} className="space-y-4">
-                                            <img src={project.image} alt={project.title} className="w-[1280px] h-[720px] rounded-lg object-cover"/>
-                                            <h3 className="text-xl font-bold">{project.title}</h3>
-                                            <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>{project.description}</p>
-                                            <a 
-                                                href={project.link} 
-                                                target="_blank" 
-                                                rel="noopener noreferrer" 
-                                                className={`${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'} inline-block transition-colors duration-300`}
-                                            >
-                                                View live site →
-                                            </a>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
+                          <section>
+                            <h2 className="text-2xl font-bold text-center mb-12">Selected projects</h2>
+                            <div className="space-y-12">
+                                {[
+                                    {
+                                        title: "Mean Mug Coffee - Brand Identity",
+                                        description: "A comprehensive brand identity system combining minimalist aesthetics with bold typography.",
+                                        image: "img/mean-mug-coffee.png",
+                                        link: "https://docs.google.com/presentation/d/1R4tHtSH4ZCVEFjDlPwbKgbFyrXAfvuEAnmZia4ate8Q/edit?usp=sharing"
+                                    },
+                                    {
+                                        title: "Mean Mug Coffee - Website Design",
+                                        description: "A user-centered website redesign focusing on improving the online ordering experience and brand presentation.",
+                                        image: "img/mean-mug-coffee-website.png",
+                                        link: "https://www.figma.com/deck/CFbzI1cciCLKDJ7C25Upug/MMC-UX-Case-Study?node-id=1-540&t=v2P4Qmb0WbIaJXyy-1"
+                                    },
+                                    {
+                                        title: "Crunchyroll - Marketing Landing Page",
+                                        description: "A strategic landing page design for anime streaming service focused on conversion and user engagement.",
+                                        image: "img/crunchyroll.png",
+                                        link: "https://docs.google.com/presentation/d/1vhf-Kv1FXOw_R-R8Kwi7Sn5Q3Z4VVF8mpI_KO4BYjaM/edit?usp=sharing"
+                                    }
+                                ].map((project, index) => (
+                                    <div key={index} className="space-y-4">
+                                        <img src={project.image} alt={project.title} className="w-[1280px] h-[720px] rounded-lg object-cover"/>
+                                        <h3 className="text-xl font-bold">{project.title}</h3>
+                                        <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>{project.description}</p>
+                                        <a 
+                                            href={project.link} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className={`${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'} inline-block transition-colors duration-300`}
+                                        >
+                                            View live site →
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
 
                             <footer className="mt-20 text-center">
                                 <h2 className="text-2xl font-bold mb-4">Contact</h2>
